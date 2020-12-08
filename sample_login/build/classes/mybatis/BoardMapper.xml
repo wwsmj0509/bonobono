@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.BoardMapper">
+
+	
+	<select id="getBoardList" resultType="BoardDTO">
+		<![CDATA[
+			SELECT * FROM BOARDTEST ORDER BY IDX DESC
+		]]>
+	</select>
+	
+	<insert id="getInsertUser" parameterType="BoardDTO">
+		<![CDATA[
+			INSERT INTO BOARDTEST 
+			VALUES(BOARD_SEQ.NEXTVAL,#{userid},#{title},#{content})
+		]]>
+	</insert>
+	
+	<select id="getBoardView" resultType="BoardDTO">
+		<![CDATA[
+			SELECT * FROM BOARDTEST WHERE IDX=#{idx}
+		]]>
+	</select>
+	
+	<!--이미지보드 맵퍼 수정-->
+	
+	<update id="getUpdateUser" parameterType="BoardDTO">
+		<![CDATA[
+			UPDATE BOARDTEST SET TITLE=#{title}, CONTENT=#{content} WHERE IDX=#{idx}
+		]]>
+	</update>
+	
+	
+	
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
